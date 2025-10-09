@@ -1,4 +1,4 @@
-import 'package:book_doctor_app/screens/mytokensscreen.dart';
+import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class AllDoctorsScreen extends StatefulWidget {
@@ -96,12 +96,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
             bottom: 20,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MyTokensScreen(),
-                  ),
-                );
+                Navigator.pushNamed(context, Routes.mytokens);
               },
               child: Container(
                 width: 56,
@@ -311,12 +306,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Booking appointment with $name'),
-                            duration: const Duration(seconds: 2),
-                          ),
-                        );
+                        Navigator.pushNamed(context, Routes.appointments);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(

@@ -1,8 +1,5 @@
-import 'package:book_doctor_app/screens/alldoctorsscreen.dart';
-import 'package:book_doctor_app/screens/allhospitalscreen.dart';
-import 'package:book_doctor_app/screens/appointmentscreen.dart';
+import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:book_doctor_app/screens/hospitaldetail.dart';
-import 'package:book_doctor_app/screens/reviewscreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -102,13 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             right: 20,
             child: GestureDetector(
               onTap: () {
-                // Add your action here
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Add person button clicked'),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
+                Navigator.pushNamed(context, Routes.mytokens);
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
@@ -406,20 +397,10 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {
             // Navigate based on selected tab
             if (_selectedTabIndex == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AllDoctorsScreen(),
-                ),
-              );
+              Navigator.pushNamed(context, Routes.alldoctors);
             } else {
               // Navigate to All Hospitals screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AllHospitalsScreen(),
-                ),
-              );
+              Navigator.pushNamed(context, Routes.allhospitals);
             }
           },
           child: Text(
@@ -449,17 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return GestureDetector(
       onTap: () {
-        // Navigate to Reviews Screen when card is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ReviewsScreen(
-              doctorName: name,
-              doctorImage: image,
-              rating: rating,
-            ),
-          ),
-        );
+        Navigator.pushNamed(context, Routes.myreviews);
       },
       child: Container(
         padding: EdgeInsets.all(cardPadding),
@@ -537,17 +508,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AppointmentScreen(
-                                doctorName: name,
-                                doctorImage: image,
-                                specialization: 'Radiology',
-                                payment: 120.00,
-                              ),
-                            ),
-                          );
+                          Navigator.pushNamed(context, Routes.appointments);
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(

@@ -20,8 +20,11 @@ class AppPages {
     Routes.alldoctors: (context) => const AllDoctorsScreen(),
     Routes.allhospitals: (context) => const AllHospitalsScreen(),
     Routes.mytokens: (context) => const MyTokensScreen(),
-    Routes.myreviews: (context) =>
-        ReviewsScreen(doctorName: '', doctorImage: '', rating: 0.0),
+    Routes.myreviews: (context) => ReviewsScreen(
+      doctorName: 'Dr.Upul',
+      doctorImage: 'assets/images/doctor1.png',
+      rating: 5.0,
+    ),
     Routes.appointments: (context) => AppointmentScreen(
       doctorName: 'Dr.Upul',
       doctorImage: 'assets/images/doctor1.png',
