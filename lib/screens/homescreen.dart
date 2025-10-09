@@ -518,7 +518,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             gradient: const LinearGradient(
                               colors: [Color(0xFF800080), Color(0xFF800080)],
                             ),
-                            borderRadius: BorderRadius.circular(18),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(
                             'Book',
