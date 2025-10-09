@@ -3,11 +3,13 @@ import 'package:book_doctor_app/screens/alldoctorsscreen.dart';
 import 'package:book_doctor_app/screens/allhospitalscreen.dart';
 import 'package:book_doctor_app/screens/appointmentscreen.dart';
 import 'package:book_doctor_app/screens/homescreen.dart';
+import 'package:book_doctor_app/screens/hospitaldetail.dart';
 import 'package:book_doctor_app/screens/loginscreen.dart';
 import 'package:book_doctor_app/screens/mytokensscreen.dart';
 import 'package:book_doctor_app/screens/otpscreen.dart';
 import 'package:book_doctor_app/screens/reviewscreen.dart';
 import 'package:book_doctor_app/screens/splashscreen.dart';
+import 'package:book_doctor_app/screens/tokenqueuescreen.dart';
 import 'package:flutter/material.dart';
 
 class AppPages {
@@ -30,6 +32,12 @@ class AppPages {
       doctorImage: 'assets/images/doctor1.png',
       specialization: 'Denteeth',
       payment: 120.00,
+    ),
+    Routes.tokenqueue: (context) =>
+        const TokenQueueScreen(doctorName: "Dr. Pawan"),
+    Routes.hospitaldetail: (context) => const HospitalDetailScreen(
+      hospitalName: "MG Hospital",
+      hospitalImage: 'assets/images/hospital1.png',
     ),
   };
 }

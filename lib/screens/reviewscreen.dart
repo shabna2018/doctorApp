@@ -1,3 +1,4 @@
+import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:book_doctor_app/screens/showaddreview.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +8,11 @@ class ReviewsScreen extends StatelessWidget {
   final double rating;
 
   const ReviewsScreen({
-    Key? key,
+    super.key,
     required this.doctorName,
     required this.doctorImage,
     required this.rating,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class ReviewsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: screenWidth * 0.01),
-              _buildDoctorHeader(screenWidth),
+              _buildDoctorHeader(screenWidth, context),
               SizedBox(height: screenWidth * 0.05),
               _buildStatsCards(screenWidth),
               SizedBox(height: screenWidth * 0.05),
@@ -57,126 +58,132 @@ class ReviewsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDoctorHeader(double screenWidth) {
-    return Container(
-      padding: EdgeInsets.all(screenWidth * 0.04),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
-            spreadRadius: 1,
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: screenWidth * 0.25,
-            height: screenWidth * 0.32,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.grey[100],
-              image: DecorationImage(
-                image: AssetImage(doctorImage),
-                fit: BoxFit.cover,
+  Widget _buildDoctorHeader(double screenWidth, BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, Routes.tokenqueue);
+      },
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: EdgeInsets.all(screenWidth * 0.04),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.15),
+              spreadRadius: 1,
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: screenWidth * 0.25,
+              height: screenWidth * 0.32,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.grey[100],
+                image: DecorationImage(
+                  image: AssetImage(doctorImage),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          SizedBox(width: screenWidth * 0.04),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  doctorName,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                const Text(
-                  'Radiology',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF800080),
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      size: 16,
-                      color: Colors.grey,
+            SizedBox(width: screenWidth * 0.04),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    doctorName,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      'Welcare Hospital',
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'Radiology',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xFF800080),
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    ...List.generate(5, (index) {
-                      return Icon(
-                        Icons.star,
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on_outlined,
                         size: 16,
-                        color: index < rating.floor()
-                            ? Colors.orange
-                            : Colors.grey[300],
-                      );
-                    }),
-                    const SizedBox(width: 6),
-                    Text(
-                      '$rating',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Colors.grey,
                       ),
-                    ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      '45 Reviews',
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    const Text(
-                      'Payment',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w500,
+                      const SizedBox(width: 4),
+                      const Text(
+                        'Welcare Hospital',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
-                    ),
-                    const SizedBox(width: 16),
-                    const Text(
-                      '\$120.00',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Color(0xFF800080),
-                        fontWeight: FontWeight.bold,
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      ...List.generate(5, (index) {
+                        return Icon(
+                          Icons.star,
+                          size: 16,
+                          color: index < rating.floor()
+                              ? Colors.orange
+                              : Colors.grey[300],
+                        );
+                      }),
+                      const SizedBox(width: 6),
+                      Text(
+                        '$rating',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      const SizedBox(width: 4),
+                      const Text(
+                        '45 Reviews',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Text(
+                        'Payment',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      const Text(
+                        '\$120.00',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFF800080),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

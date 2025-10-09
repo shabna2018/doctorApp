@@ -1,4 +1,4 @@
-import 'package:book_doctor_app/screens/reviewscreen.dart';
+import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class MyTokensScreen extends StatefulWidget {
@@ -223,16 +223,7 @@ class _MyTokensScreenState extends State<MyTokensScreen> {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ReviewsScreen(
-              doctorName: doctorName,
-              doctorImage: image,
-              rating: rating,
-            ),
-          ),
-        );
+        Navigator.pushNamed(context, Routes.myreviews);
       },
       child: Container(
         padding: EdgeInsets.all(cardPadding),

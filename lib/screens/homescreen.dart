@@ -1,5 +1,4 @@
 import 'package:book_doctor_app/routes/app_routes.dart';
-import 'package:book_doctor_app/screens/hospitaldetail.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -571,14 +570,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return GestureDetector(
       onTap: () {
-        // Navigate to Hospital Detail Screen when card is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                HospitalDetailScreen(hospitalName: name, hospitalImage: image),
-          ),
-        );
+        Navigator.pushNamed(context, Routes.hospitaldetail);
       },
       child: Container(
         padding: EdgeInsets.all(cardPadding),

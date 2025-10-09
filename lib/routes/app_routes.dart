@@ -9,4 +9,6 @@ class Routes {
   static const String myreviews = '/myreviews';
   static const String showreview = '/showaddreview';
   static const String appointments = '/appointments';
+  static const String tokenqueue = '/tokenqueue';
+  static const String hospitaldetail = '/hospitaldetail';
 }
