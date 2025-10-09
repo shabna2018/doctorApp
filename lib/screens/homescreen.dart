@@ -1,6 +1,8 @@
 import 'package:book_doctor_app/screens/alldoctorsscreen.dart';
 import 'package:book_doctor_app/screens/allhospitalscreen.dart';
 import 'package:book_doctor_app/screens/appointmentscreen.dart';
+import 'package:book_doctor_app/screens/hospitaldetail.dart';
+import 'package:book_doctor_app/screens/reviewscreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -445,140 +447,154 @@ class _HomeScreenState extends State<HomeScreen> {
     final cardPadding = screenWidth * 0.035;
     final imageSize = screenWidth * 0.18;
 
-    return Container(
-      padding: EdgeInsets.all(cardPadding),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 2,
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+    return GestureDetector(
+      onTap: () {
+        // Navigate to Reviews Screen when card is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ReviewsScreen(
+              doctorName: name,
+              doctorImage: image,
+              rating: rating,
+            ),
           ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: imageSize,
-            height: imageSize * 1.25,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.cover,
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.all(cardPadding),
+        decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: imageSize,
+              height: imageSize * 1.25,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: AssetImage(image),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          SizedBox(width: screenWidth * 0.035),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      name,
-                      style: TextStyle(
-                        fontSize: isSmallScreen ? 14 : 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+            SizedBox(width: screenWidth * 0.035),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(
+                          fontSize: isSmallScreen ? 14 : 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _doctorFavorites[index] = !_doctorFavorites[index];
-                        });
-                      },
-                      child: Icon(
-                        isFavorite ? Icons.favorite : Icons.favorite_border,
-                        color: isFavorite
-                            ? const Color(0xFF8E24AA)
-                            : Colors.grey,
-                        size: isSmallScreen ? 20 : 22,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _doctorFavorites[index] = !_doctorFavorites[index];
+                          });
+                        },
+                        child: Icon(
+                          isFavorite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavorite
+                              ? const Color(0xFF8E24AA)
+                              : Colors.grey,
+                          size: isSmallScreen ? 20 : 22,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: screenWidth * 0.015),
-                Text(
-                  'lorem ipsum dolor, consectetur\nadipiscing elit. Viverra ut\nvelit interdum ac mattis.',
-                  style: TextStyle(
-                    fontSize: isSmallScreen ? 10 : 11,
-                    color: Colors.grey[600],
-                    height: 1.3,
+                    ],
                   ),
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(height: screenWidth * 0.025),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AppointmentScreen(
-                              doctorName: name, // Pass the doctor's name
-                              doctorImage: image, // Pass the doctor's image
-                              specialization:
-                                  'Radiology', // Pass specialization
-                              payment: 120.00, // Pass payment amount
+                  SizedBox(height: screenWidth * 0.015),
+                  Text(
+                    'lorem ipsum dolor, consectetur\nadipiscing elit. Viverra ut\nvelit interdum ac mattis.',
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 10 : 11,
+                      color: Colors.grey[600],
+                      height: 1.3,
+                    ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: screenWidth * 0.025),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AppointmentScreen(
+                                doctorName: name,
+                                doctorImage: image,
+                                specialization: 'Radiology',
+                                payment: 120.00,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.045,
+                            vertical: isSmallScreen ? 6 : 7,
+                          ),
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF800080), Color(0xFF800080)],
+                            ),
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: Text(
+                            'Book',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: isSmallScreen ? 12 : 13,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
-                        );
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.045,
-                          vertical: isSmallScreen ? 6 : 7,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFF800080), Color(0xFF800080)],
-                          ),
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Text(
-                          'Book',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: isSmallScreen ? 12 : 13,
-                            fontWeight: FontWeight.w600,
-                          ),
                         ),
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.orange,
-                          size: isSmallScreen ? 16 : 18,
-                        ),
-                        const SizedBox(width: 3),
-                        Text(
-                          rating.toString(),
-                          style: TextStyle(
-                            fontSize: isSmallScreen ? 12 : 13,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Colors.orange,
+                            size: isSmallScreen ? 16 : 18,
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                          const SizedBox(width: 3),
+                          Text(
+                            rating.toString(),
+                            style: TextStyle(
+                              fontSize: isSmallScreen ? 12 : 13,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -592,67 +608,79 @@ class _HomeScreenState extends State<HomeScreen> {
   }) {
     final cardPadding = screenWidth * 0.035;
 
-    return Container(
-      padding: EdgeInsets.all(cardPadding),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
-            spreadRadius: 2,
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+    return GestureDetector(
+      onTap: () {
+        // Navigate to Hospital Detail Screen when card is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                HospitalDetailScreen(hospitalName: name, hospitalImage: image),
           ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.all(cardPadding),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.15),
+              spreadRadius: 2,
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 16 : 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: screenWidth * 0.02),
+                  Text(
+                    'Yorem ipsum dolor sit amet,\nconsectetur adipiscing elit. Nunc\nvulputate libero et velit interdum,\nac aliquet odio mattis.',
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 10 : 11,
+                      color: Colors.grey[600],
+                      height: 1.4,
+                    ),
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: screenWidth * 0.03),
+            Column(
               children: [
-                Text(
-                  name,
-                  style: TextStyle(
-                    fontSize: isSmallScreen ? 16 : 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                Container(
+                  width: screenWidth * 0.28,
+                  height: screenWidth * 0.25,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: AssetImage(image),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 SizedBox(height: screenWidth * 0.02),
-                Text(
-                  'Yorem ipsum dolor sit amet,\nconsectetur adipiscing elit. Nunc\nvulputate libero et velit interdum,\nac aliquet odio mattis.',
-                  style: TextStyle(
-                    fontSize: isSmallScreen ? 10 : 11,
-                    color: Colors.grey[600],
-                    height: 1.4,
-                  ),
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                ),
               ],
             ),
-          ),
-          SizedBox(width: screenWidth * 0.03),
-          Column(
-            children: [
-              Container(
-                width: screenWidth * 0.28,
-                height: screenWidth * 0.25,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              SizedBox(height: screenWidth * 0.02),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
