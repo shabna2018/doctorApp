@@ -9,6 +9,8 @@ class Routes {
   static const String myreviews = '/myreviews';
   static const String showreview = '/showaddreview';
   static const String appointments = '/appointments';
+  static const String selectdateandtime = '/selectdateandtime';
+  static const String scheduleconsult = '/scheduleconsult';
   static const String tokenqueue = '/tokenqueue';
   static const String hospitaldetail = '/hospitaldetail';
   static const String roleSelection = '/role-selection';

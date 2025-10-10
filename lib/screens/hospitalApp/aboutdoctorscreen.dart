@@ -1,3 +1,4 @@
+import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class DoctorAboutScreen extends StatelessWidget {
@@ -176,7 +177,9 @@ class DoctorAboutScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.selectdateandtime);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF2196F3),
                     foregroundColor: Colors.white,
@@ -222,7 +225,9 @@ class DoctorAboutScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.scheduleconsult);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFF9800),
                     foregroundColor: Colors.white,

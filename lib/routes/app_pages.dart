@@ -2,6 +2,7 @@ import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:book_doctor_app/screens/hospitalApp/aboutdoctorscreen.dart';
 import 'package:book_doctor_app/screens/hospitalApp/hospitalHomescreen.dart';
 import 'package:book_doctor_app/screens/hospitalApp/hospitallogin.dart';
+import 'package:book_doctor_app/screens/hospitalApp/scheduleconsultscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/alldoctorsscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/allhospitalscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/appointmentscreen.dart';
@@ -12,6 +13,7 @@ import 'package:book_doctor_app/screens/patientApp/mytokensscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/otpscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/reviewscreen.dart';
 import 'package:book_doctor_app/common/roleselectionacreen.dart';
+import 'package:book_doctor_app/screens/patientApp/selectdatetimescreen.dart';
 import 'package:book_doctor_app/screens/patientApp/splashscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/tokenqueuescreen.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +33,8 @@ class AppPages {
     Routes.alldoctors: (context) => const AllDoctorsScreen(),
     Routes.allhospitals: (context) => const AllHospitalsScreen(),
     Routes.mytokens: (context) => const MyTokensScreen(),
+    Routes.selectdateandtime: (context) => const SelectDateTimeScreen(),
+    Routes.scheduleconsult: (context) => const SelectDateTimeTokenScreen(),
     Routes.myreviews: (context) => ReviewsScreen(
       doctorName: 'Dr.Upul',
       doctorImage: 'assets/images/doctor1.png',
