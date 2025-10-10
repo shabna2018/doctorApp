@@ -1,4 +1,6 @@
 import 'package:book_doctor_app/routes/app_routes.dart';
+import 'package:book_doctor_app/screens/hospitalApp/hospitalHomescreen.dart';
+import 'package:book_doctor_app/screens/hospitalApp/hospitallogin.dart';
 import 'package:book_doctor_app/screens/patientApp/alldoctorsscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/allhospitalscreen.dart';
 import 'package:book_doctor_app/screens/patientApp/appointmentscreen.dart';
@@ -18,7 +20,8 @@ class AppPages {
     Routes.splash: (context) => const SplashScreen(),
     Routes.roleSelection: (context) => const RoleSelectionScreen(), // Add this
     Routes.login: (context) => const LoginScreen(), // Patient login
-    // Routes.hospitalLogin: (context) => const HospitalLoginScreen(), // Add this
+    Routes.hospitalLogin: (context) => const HospitalLoginScreen(),
+    Routes.hospitalhome: (context) => const HospitalHomeScreen(), // Add this
     // Routes.doctorLogin: (context) => const DoctorLoginScreen(), // Add this
     // Routes.tokenDisplayLogin: (context) => const TokenDisplayLoginScreen(), // Add this
     Routes.verifyOtp: (context) => const OtpScreen(),
