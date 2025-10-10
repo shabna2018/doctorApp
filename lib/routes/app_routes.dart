@@ -11,4 +11,8 @@ class Routes {
   static const String appointments = '/appointments';
   static const String tokenqueue = '/tokenqueue';
   static const String hospitaldetail = '/hospitaldetail';
+  static const String roleSelection = '/role-selection';
+  static const String hospitalLogin = '/hospital-login'; // Add this
+  static const String doctorLogin = '/doctor-login';
+  static const String tokenDisplayLogin = '/token-display-login';
 }

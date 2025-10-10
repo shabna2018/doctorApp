@@ -1,4 +1,4 @@
-import 'package:book_doctor_app/screens/splashscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'routes/app_pages.dart';
 

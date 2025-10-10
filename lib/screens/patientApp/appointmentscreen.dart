@@ -1,4 +1,4 @@
-import 'package:book_doctor_app/screens/selectdatetimescreen.dart';
+import 'package:book_doctor_app/screens/patientApp/selectdatetimescreen.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentScreen extends StatefulWidget {

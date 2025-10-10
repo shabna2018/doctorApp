@@ -1,22 +1,26 @@
 import 'package:book_doctor_app/routes/app_routes.dart';
-import 'package:book_doctor_app/screens/alldoctorsscreen.dart';
-import 'package:book_doctor_app/screens/allhospitalscreen.dart';
-import 'package:book_doctor_app/screens/appointmentscreen.dart';
-import 'package:book_doctor_app/screens/homescreen.dart';
-import 'package:book_doctor_app/screens/hospitaldetail.dart';
-import 'package:book_doctor_app/screens/loginscreen.dart';
-import 'package:book_doctor_app/screens/mytokensscreen.dart';
-import 'package:book_doctor_app/screens/otpscreen.dart';
-import 'package:book_doctor_app/screens/reviewscreen.dart';
-import 'package:book_doctor_app/screens/splashscreen.dart';
-import 'package:book_doctor_app/screens/tokenqueuescreen.dart';
+import 'package:book_doctor_app/screens/patientApp/alldoctorsscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/allhospitalscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/appointmentscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/homescreen.dart';
+import 'package:book_doctor_app/screens/patientApp/hospitaldetail.dart';
+import 'package:book_doctor_app/screens/patientApp/loginscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/mytokensscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/otpscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/reviewscreen.dart';
+import 'package:book_doctor_app/common/roleselectionacreen.dart';
+import 'package:book_doctor_app/screens/patientApp/splashscreen.dart';
+import 'package:book_doctor_app/screens/patientApp/tokenqueuescreen.dart';
 import 'package:flutter/material.dart';
 
 class AppPages {
   static Map<String, WidgetBuilder> routes = {
-    // Remove this line: '/': (context) => const SplashScreen(),
     Routes.splash: (context) => const SplashScreen(),
-    Routes.login: (context) => const LoginScreen(),
+    Routes.roleSelection: (context) => const RoleSelectionScreen(), // Add this
+    Routes.login: (context) => const LoginScreen(), // Patient login
+    // Routes.hospitalLogin: (context) => const HospitalLoginScreen(), // Add this
+    // Routes.doctorLogin: (context) => const DoctorLoginScreen(), // Add this
+    // Routes.tokenDisplayLogin: (context) => const TokenDisplayLoginScreen(), // Add this
     Routes.verifyOtp: (context) => const OtpScreen(),
     Routes.home: (context) => const HomeScreen(),
     Routes.alldoctors: (context) => const AllDoctorsScreen(),

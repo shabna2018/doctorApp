@@ -1,5 +1,5 @@
 import 'package:book_doctor_app/routes/app_routes.dart';
-import 'package:book_doctor_app/screens/showaddreview.dart';
+import 'package:book_doctor_app/screens/patientApp/showaddreview.dart';
 import 'package:flutter/material.dart';
 
 class ReviewsScreen extends StatelessWidget {
