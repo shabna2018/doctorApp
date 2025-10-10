@@ -1,3 +1,4 @@
+import 'package:book_doctor_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class HospitalHomeScreen extends StatefulWidget {
@@ -491,6 +492,7 @@ class _HospitalHomeScreenState extends State<HospitalHomeScreen> {
       ),
     );
   }
+  // In your _buildDoctorCard method, update the "Know more" button's onPressed:
 
   Widget _buildDoctorCard(
     int id,
@@ -555,7 +557,18 @@ class _HospitalHomeScreenState extends State<HospitalHomeScreen> {
                 Row(
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.aboutdoctor,
+                          arguments: {
+                            'doctorName': name,
+                            'department': 'Ortho',
+                            'imagePath': imagePath,
+                            'rating': rating,
+                          },
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF8B0A8B),
                         foregroundColor: Colors.white,

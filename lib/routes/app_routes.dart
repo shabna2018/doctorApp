@@ -16,4 +16,5 @@ class Routes {
   static const String doctorLogin = '/doctor-login';
   static const String tokenDisplayLogin = '/token-display-login';
   static const String hospitalhome = '/hospitalhome';
+  static const String aboutdoctor = '/aboutdoctor';
 }
