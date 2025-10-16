@@ -8,14 +8,14 @@ class HospitalDetailScreen extends StatelessWidget {
   final String phone;
 
   const HospitalDetailScreen({
-    Key? key,
+    super.key,
     required this.hospitalName,
     required this.hospitalImage,
     this.address =
         'Welcare Hospital, Sahodaran Ayyappan Road, Vyttila, Ernakulam, Kerala 682019',
     this.email = 'Welcare@health.in',
     this.phone = '+91 98467 56789',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

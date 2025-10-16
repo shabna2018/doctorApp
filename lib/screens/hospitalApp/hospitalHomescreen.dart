@@ -1,4 +1,5 @@
 import 'package:book_doctor_app/routes/app_routes.dart';
+import 'package:book_doctor_app/screens/hospitalApp/hospitaloverviewscreen.dart';
 import 'package:flutter/material.dart';
 
 class HospitalHomeScreen extends StatefulWidget {
@@ -33,14 +34,27 @@ class _HospitalHomeScreenState extends State<HospitalHomeScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/hsptlprofile.png'),
-                        fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HospitalOverviewScreen(
+                            hospitalName: 'Welcare Hospital',
+                            hospitalImage: 'assets/images/hsptlprofile.png',
+                          ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/hsptlprofile.png'),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
@@ -110,7 +124,7 @@ class _HospitalHomeScreenState extends State<HospitalHomeScreen> {
 
             const SizedBox(height: 20),
 
-            // Carousel (exactly like HomeScreen)
+            // Carousel
             _buildCarousel(screenWidth),
 
             const SizedBox(height: 20),
@@ -397,7 +411,6 @@ class _HospitalHomeScreenState extends State<HospitalHomeScreen> {
                               Expanded(
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    // Handle OK action
                                     Navigator.pop(context);
                                   },
                                   style: ElevatedButton.styleFrom(
@@ -492,7 +505,6 @@ class _HospitalHomeScreenState extends State<HospitalHomeScreen> {
       ),
     );
   }
-  // In your _buildDoctorCard method, update the "Know more" button's onPressed:
 
   Widget _buildDoctorCard(
     int id,
